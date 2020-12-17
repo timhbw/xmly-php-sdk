@@ -18,6 +18,20 @@ final class Auth
         return $this->appKey;
     }
 
+    private function createSig($data)
+    {
+        ksort($data);
+        $parme = "";
+        foreach ($data as $k => $v) {
+            $parme .= "$k=$v&";
+        }
+        $parme = trim($parme, '&');
+        $str = base64_encode($parme);
+        $hashKey = $this->appKey;
+        $sigStr = md5(hash_hmac('sha1', $str, $hashKey, true));
+        return $sigStr;
+    }
+
     public function getAccessToken()
     {
     }
