@@ -20,7 +20,7 @@ $body = json_encode($req);
 
 $contentType = "application/json";
 
-$headers = $auth->getAccessToken();
+//$headers = $auth->getAccessToken();
 
 $headers['Content-Type'] = $contentType;
 $response = Client::post($url, $body, $headers);
