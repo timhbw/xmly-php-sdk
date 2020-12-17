@@ -38,9 +38,9 @@ final class Auth
         return $sigStr;
     }
 
-    public function getAccessToken($device_id, $code, $grant_type, $redirect_uri, $state)
+    public function getAccessToken($device_id, $code, $redirect_uri, $state, $grant_type = 'authorization_code')
     {
-        $params = array('client_id' => $this->appKey, 'client_secret' => $this->appSecret, 'device_id' => $device_id, 'code' => $code, 'grant_type' => $grant_type, 'redirect_uri' => $redirect_uri, 'state' => $state);
+        $params = array('client_id' => $this->appKey, 'client_secret' => $this->appSecret, 'device_id' => $device_id, 'code' => $code, 'redirect_uri' => $redirect_uri, 'state' => $state, 'grant_type' => $grant_type);
         $data = http_build_query($params);
 
         $scheme = "http://";
