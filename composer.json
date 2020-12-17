@@ -20,6 +20,6 @@
         "phpunit/phpunit": "^9.5"
     },
     "autoload": {
-        "psr-4": { "Timhbw\\": "src/Xmly/" }
+        "psr-4": { "Xmly\\": "src/Xmly/" }
     }
 }
