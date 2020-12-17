@@ -34,6 +34,7 @@ final class Auth
 
     public function getAccessToken()
     {
+        return array('Authorization' => 'secret');
     }
 
     public function refreshAccessToken()
