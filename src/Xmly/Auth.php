@@ -17,4 +17,16 @@ final class Auth
     {
         return $this->appKey;
     }
+
+    public function getAccessToken()
+    {
+    }
+
+    public function refreshAccessToken()
+    {
+    }
+
+    public function getAccessTokenInfo()
+    {
+    }
 }
