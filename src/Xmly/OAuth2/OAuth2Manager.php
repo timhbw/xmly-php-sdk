@@ -38,7 +38,7 @@ final class OAuth2Manager
     {
         $params = array(
             'client_id' => $this->auth->getAppKey(),
-            'client_secret' => $this->auth->appSecret(),
+            'client_secret' => $this->auth->getAppSecret(),
             'device_id' => $device_id,
             'code' => $code,
             'redirect_uri' => $redirect_uri,
@@ -77,7 +77,7 @@ final class OAuth2Manager
     {
         $params = array(
             'client_id' => $this->auth->getAppKey(),
-            'client_secret' => $this->auth->appSecret(),
+            'client_secret' => $this->auth->getAppSecret(),
             'device_id' => $device_id,
             'refresh_token' => $refresh_token,
             'redirect_uri' => $redirect_uri,
@@ -113,7 +113,7 @@ final class OAuth2Manager
     {
         $params = array(
             'client_id' => $this->auth->getAppKey(),
-            'client_secret' => $this->auth->appSecret(),
+            'client_secret' => $this->auth->getAppSecret(),
             'device_id' => $device_id,
             'access_token' => $access_token
         );
