@@ -124,7 +124,7 @@ final class OAuth2Manager
             $scheme = "https://";
         }
         $url = $scheme . Config::API_HOST . '/oauth2/get_token_info?' . $data;
-        var_dump($url);
+
         $headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
         $response = Client::get($url, $headers);
 
