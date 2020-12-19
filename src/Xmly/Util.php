@@ -32,17 +32,15 @@ final class Util
         return $data;
     }
 
-    public static function randomString($length)
+    public static function randomString($length = 11)
     {
         $str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890';
-        $randStr = str_shuffle($str);//打乱字符串
-        $rands = substr($randStr, 0, $length);//substr(string,start,length);返回字符串的一部分
-        return $rands;
+        $randStr = str_shuffle(str_repeat($str, $length));//打乱字符串
+        return substr($randStr, 0, $length);
     }
 
     public static function msecTime()
     {
-        list($msec, $sec) = explode(' ', microtime());
-        return (float)sprintf('%.0f', (floatval($msec) + floatval($sec)) * 1000);
+        return floor(microtime(true) * 1000);
     }
 }
