@@ -38,8 +38,7 @@ final class AodManager
             $scheme = "https://";
         }
 
-        $data = http_build_query($body);
-        $sigURL = $this->auth->signatureURL($data, $serverAuthStaticKey);
+        $sigURL = $this->auth->signatureURL($body, $serverAuthStaticKey);
         $url = $scheme . Config::API_HOST . '/categories/list?' . $sigURL;
         return $this->get($url);
     }
