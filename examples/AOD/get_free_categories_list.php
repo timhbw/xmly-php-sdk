@@ -25,7 +25,7 @@ $body = array(
     'server_api_version' => '1.0.0'
 );
 
-// 免费内容-分类列表：https://open.ximalaya.com/doc/detailApi?categoryId=10&articleId=6#%E5%88%86%E7%B1%BB%E5%88%97%E8%A1%A8
+// 点播-免费内容-获取分类列表：https://open.ximalaya.com/doc/detailApi?categoryId=10&articleId=6#%E5%88%86%E7%B1%BB%E5%88%97%E8%A1%A8
 
 list($ret, $err) = $aodManager->getCategoriesList($body, $serverAuthStaticKey);
 if ($err !== null) {
