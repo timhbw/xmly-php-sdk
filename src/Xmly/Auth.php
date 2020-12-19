@@ -40,7 +40,7 @@ final class Auth
      * 将除了sig以外的所有请求参数的原始值按照参数名的字典序排序，将排序后的参数键值对用&拼接
      * 并对得到的字符串进行Base64编码
      *
-     * @param string $body 除sig以外的所有请求参数
+     * @param array $body 除sig以外的所有请求参数
      * @return string
      */
     public function signWithData($body)
@@ -53,7 +53,7 @@ final class Auth
      * 将除了sig以外的所有请求参数的原始值按照参数名的字典序排序，将排序后的参数键值对用&拼接
      * 并对得到的字符串进行Base64编码，如果传入
      *
-     * @param string $body 除sig以外的所有请求参数
+     * @param array $body 除sig以外的所有请求参数
      * @param null $serverAuthenticateStaticKey 服务端密钥
      * @return string
      */
@@ -67,7 +67,7 @@ final class Auth
     /**
      * 通用签名生成
      *
-     * @param string $body 除sig以外的所有请求参数
+     * @param array $body 除sig以外的所有请求参数
      * @param null $serverAuthenticateStaticKey 服务端密钥
      * @return string
      *
@@ -81,13 +81,15 @@ final class Auth
     /**
      * 拼接带 sig 参数完整的请求 URL
      *
-     * @param string $body 除sig以外的所有请求参数
+     * @param array $body 除sig以外的所有请求参数
      * @param null $serverAuthenticateStaticKey 服务端密钥
      * @return string
      */
     public function signatureURL($body, $serverAuthenticateStaticKey = null)
     {
+        ksort($body, SORT_STRING);
         $sig = $this->signature($body, $serverAuthenticateStaticKey);
-        return $body . $sig;
+        $requestURL = http_build_query($body);
+        return $requestURL . $sig;
     }
 }
