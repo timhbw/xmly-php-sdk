@@ -22,7 +22,7 @@ final class AodManager
         }
     }
 
-    public function getCategoriesList($body, $serverAuthStaticKey)
+    public function getCategoriesList($body, $serverAuthStaticKey = null)
     {
         $scheme = "http://";
         if ($this->config->useHTTPS === true) {
