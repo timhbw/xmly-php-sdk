@@ -25,7 +25,7 @@ final class AodManager
     /**
      * 点播-免费内容-获取分类列表
      *
-     * @param $body
+     * @param array $body
      * @param null $serverAuthStaticKey
      * @return array
      *
@@ -46,7 +46,7 @@ final class AodManager
     /**
      * 点播-主播-获取主播分类列表
      *
-     * @param $body
+     * @param array $body
      * @param null $serverAuthStaticKey
      * @return array
      *
@@ -59,8 +59,7 @@ final class AodManager
             $scheme = "https://";
         }
 
-        $data = http_build_query($body);
-        $sigURL = $this->auth->signatureURL($data, $serverAuthStaticKey);
+        $sigURL = $this->auth->signatureURL($body, $serverAuthStaticKey);
         $url = $scheme . Config::API_HOST . '/announcers/categories?' . $sigURL;
         return $this->get($url);
     }
