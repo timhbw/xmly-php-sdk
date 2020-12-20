@@ -24,7 +24,6 @@ $body['category_id'] = 30; // 分类ID，为0时表示热门分类。分类数�
 $body['type'] = 0; // 指定返回专辑标签还是声音标签：0-专辑标签，1-声音标签
 $body = $auth->commonParams($body);
 
-
 list($ret, $err) = $aodManager->getTagsList($body, $serverAuthStaticKey);
 if ($err !== null) {
     var_dump($err);
