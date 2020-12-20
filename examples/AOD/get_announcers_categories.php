@@ -13,6 +13,7 @@ $auth = new Auth($appKey, $appSecret);
 
 $config = new Config();
 $config->useHTTPS = true; // 接口是否使用 HTTPS 协议
+$config->enableLogs = true; // 是否记录日志到本地
 
 $aodManager = new AodManager($auth, $config);
 

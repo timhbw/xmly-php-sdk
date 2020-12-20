@@ -2,6 +2,8 @@
 
 namespace Xmly;
 
+use http\Message\Body;
+
 final class Util
 {
     public static function json_decode($json, $assoc = false, $depth = 512)
@@ -42,5 +44,37 @@ final class Util
     public static function msecTime()
     {
         return floor(microtime(true) * 1000);
+    }
+
+    public static function mkdir()
+    {
+        if (!is_dir(Config::LOG_PATH)) {
+            mkdir(Config::LOG_PATH, 0777, true);
+            var_dump(Config::LOG_PATH);
+        }
+    }
+
+    public static function writeLog($LogLevel, $url, $body, $statusCode = null, $duration = null, $error = null)
+    {
+        self::mkdir();
+        date_default_timezone_set("Asia/Shanghai");
+        $log_file_name = Config::LOG_PATH . $LogLevel . "-" . date('Y-m-d-H') . '.log';
+        if ($LogLevel === 'INFO') {
+            $content = date('Y-m-d H:i:s') . ' [' . $LogLevel . '] ' . $statusCode . '  ' . $duration . '  ' . $url . '  ' . $body . "\n";
+        } else {
+            $content = date('Y-m-d H:i:s') . ' [' . $LogLevel . '] ' . $statusCode . '  ' . $duration . '  ' . $url . '  ' . $body . '  ' . $error . "\n";
+        }
+
+        file_put_contents($log_file_name, $content, FILE_APPEND);
+    }
+
+    public static function writeInfoLog($url, $body, $statusCode, $duration)
+    {
+        self::writeLog('INFO', $url, $body, $statusCode, $duration);
+    }
+
+    public static function writeErrLog($url, $body, $statusCode, $duration, $error)
+    {
+        self::writeLog('ERROR', $url, $body, $statusCode, $duration, $error);
     }
 }

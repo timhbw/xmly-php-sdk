@@ -6,6 +6,7 @@ use Xmly\Auth;
 use Xmly\Config;
 use Xmly\Http\Client;
 use Xmly\Http\Error;
+use Xmly\Util;
 
 final class AodManager
 {
@@ -37,7 +38,6 @@ final class AodManager
         if ($this->config->useHTTPS === true) {
             $scheme = "https://";
         }
-
         $sigURL = $this->auth->signatureURL($body, $serverAuthStaticKey);
         $url = $scheme . Config::API_HOST . '/categories/list?' . $sigURL;
         return $this->get($url);
@@ -69,7 +69,11 @@ final class AodManager
         $headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
         $ret = Client::get($url, $headers);
         if (!$ret->ok()) {
+            Util::writeErrLog($url, $ret->body, $ret->statusCode, $ret->duration, $ret->error);
             return array(null, new Error($url, $ret));
+        }
+        if ($this->config->enableLogs === true) {
+            Util::writeInfoLog($url, $ret->body, $ret->statusCode, $ret->duration);
         }
         return array($ret->json(), null);
     }
