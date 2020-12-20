@@ -18,12 +18,13 @@ $config->enableLogs = true; // 是否记录日志到本地
 
 $aodManager = new AodManager($auth, $config);
 
-// 点播-主播-获取主播分类列表：https://open.ximalaya.com/doc/detailApi?categoryId=10&articleId=61
-//$body['xxxx'] = 'xxxx';
-//$body = $auth->commonParams($body);
-$body = $auth->commonParams();
+// 点播-免费内容-获取专辑列表：https://open.ximalaya.com/doc/detailApi?categoryId=10&articleId=6#%E4%B8%93%E8%BE%91%E5%88%97%E8%A1%A8
 
-list($ret, $err) = $aodManager->getAnnouncersCategories($body, $serverAuthStaticKey);
+$body['category_id'] = 30; // 分类ID，为0时表示热门分类。分类数据可以通过 /categories/list获取
+$body['calc_dimension'] = 1; // 返回结果排序维度：1-最火，2-最新，3-最多播放
+$body = $auth->commonParams($body);
+
+list($ret, $err) = $aodManager->getAlbumsList($body, $serverAuthStaticKey);
 if ($err !== null) {
     var_dump($err);
 } else {
