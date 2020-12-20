@@ -3,6 +3,7 @@
 namespace Xmly\Http;
 
 use Xmly\Util;
+
 /**
  * HTTP response Object
  */

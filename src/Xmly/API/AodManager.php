@@ -117,5 +117,4 @@ final class AodManager
         }
         return array($ret->json(), null);
     }
-
 }
