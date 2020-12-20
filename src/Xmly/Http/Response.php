@@ -132,7 +132,7 @@ final class Response
 
     private static function bodyJson($body)
     {
-        return Util::json_decode((string)$body, true, 512);
+        return Util::jsonDecode((string)$body, true, 512);
     }
 
     public function ok()

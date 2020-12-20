@@ -4,7 +4,7 @@ namespace Xmly;
 
 final class Util
 {
-    public static function json_decode($json, $assoc = false, $depth = 512)
+    public static function jsonDecode($json, $assoc = false, $depth = 512)
     {
         static $jsonErrors = array(
             JSON_ERROR_DEPTH => 'JSON_ERROR_DEPTH - Maximum stack depth exceeded',
@@ -51,18 +51,20 @@ final class Util
         }
     }
 
-    public static function writeLog($LogLevel, $url, $body, $statusCode = null, $duration = null, $error = null)
+    public static function writeLog($logLevel, $url, $body, $statusCode = null, $duration = null, $error = null)
     {
         self::mkdir();
         date_default_timezone_set("Asia/Shanghai");
-        $log_file_name = Config::LOG_PATH . $LogLevel . "-" . date('Y-m-d-H') . '.log';
-        if ($LogLevel === 'INFO') {
-            $content = date('Y-m-d H:i:s') . ' [' . $LogLevel . '] ' . $statusCode . '  ' . $duration . '  ' . $url . '  ' . $body . "\n";
+        $logFileName = Config::LOG_PATH . $logLevel . '-' . date('Y-m-d-H') . '.log';
+        if ($logLevel === 'INFO') {
+            $content = date('Y-m-d H:i:s') . ' [' . $logLevel . '] ';
+            $content .= $statusCode . '  ' . $duration . '  ' . $url . '  ' . $body . "\n";
         } else {
-            $content = date('Y-m-d H:i:s') . ' [' . $LogLevel . '] ' . $statusCode . '  ' . $duration . '  ' . $url . '  ' . $body . '  ' . $error . "\n";
+            $content = date('Y-m-d H:i:s') . ' [' . $logLevel . '] ';
+            $content .= $statusCode . '  ' . $duration . '  ' . $url . '  ' . $body . '  ' . $error . "\n";
         }
 
-        file_put_contents($log_file_name, $content, FILE_APPEND);
+        file_put_contents($logFileName, $content, FILE_APPEND);
     }
 
     public static function writeInfoLog($url, $body, $statusCode, $duration)
