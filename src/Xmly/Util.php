@@ -2,8 +2,6 @@
 
 namespace Xmly;
 
-use http\Message\Body;
-
 final class Util
 {
     public static function json_decode($json, $assoc = false, $depth = 512)
@@ -50,7 +48,6 @@ final class Util
     {
         if (!is_dir(Config::LOG_PATH)) {
             mkdir(Config::LOG_PATH, 0777, true);
-            var_dump(Config::LOG_PATH);
         }
     }
 
