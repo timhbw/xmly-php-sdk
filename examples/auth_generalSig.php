@@ -11,10 +11,12 @@ $timestamp = Util::msecTime();
 //1、拿到除了sig以外的所有请求参数的原始值
 //app_key client_os_type nonce timestamp
 //device_id server_api_version
-$urlParam = 'app_key=99b37417e1185eda1378600593b45c40&client_os_type=4&nonce=vptPDUOTs1s&timestamp=1608391178340&device_id=2dfde78d016947e2982c734930951d55&server_api_version=1.0.0';
+$urlParam = 'app_key=99b37417e1185eda1378600593b45c40&client_os_type=4
+&nonce=vptPDUOTs1s&timestamp=1608391178340&device_id=2dfde78d016947e2982c734930951d55&server_api_version=1.0.0';
 
 //2、将排序后的参数键值对用&拼接
-$sortURL = 'app_key=99b37417e1185eda1378600593b45c40&client_os_type=4&device_id=2dfde78d016947e2982c734930951d55&nonce=VtNJbmySs11&server_api_version=1.0.0&timestamp=' . $timestamp;
+$sortURL = 'app_key=99b37417e1185eda1378600593b45c40&client_os_type=4
+&device_id=2dfde78d016947e2982c734930951d55&nonce=VtNJbmySs11&server_api_version=1.0.0&timestamp=' . $timestamp;
 var_dump($sortURL);
 
 //3、步骤2得到的字符串进行Base64编码
@@ -29,7 +31,7 @@ $sigStr = md5(hash_hmac('sha1', $base64EncodedStr, $hashKey, true));
 //6、拼接完整请求 URL
 $requestUrl = $api . '?' . $sortURL . '&sig=' . $sigStr;
 
-//$params_arr = json_decode($urlParam, true);
+//$params_arr = jsonDecode($urlParam, true);
 ////var_dump($params_arr);
 //
 //ksort($params_arr);
