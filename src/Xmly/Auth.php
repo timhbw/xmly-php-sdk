@@ -6,11 +6,13 @@ final class Auth
 {
     private $appKey;
     private $appSecret;
+    private $deviceID;
 
-    public function __construct($appKey, $appSecret)
+    public function __construct($appKey, $appSecret, $deviceID)
     {
         $this->appKey = $appKey;
         $this->appSecret = $appSecret;
+        $this->deviceID = $deviceID;
     }
 
     public function getAppKey()
@@ -21,6 +23,11 @@ final class Auth
     public function getAppSecret()
     {
         return $this->appSecret;
+    }
+
+    public function getdeviceID()
+    {
+        return $this->deviceID;
     }
 
     /**
@@ -91,5 +98,17 @@ final class Auth
         $sig = $this->signature($body, $serverAuthenticateStaticKey);
         $requestURL = http_build_query($body);
         return $requestURL . $sig;
+    }
+
+    public function commonParams(array $body = array())
+    {
+        $body['app_key'] = $this->getAppKey();
+        $body['client_os_type'] = 4;
+        $body['nonce'] = Util::randomString();
+        $body['timestamp'] = Util::msecTime();
+        $body['device_id'] = $this->getdeviceID();
+        $body['server_api_version'] = '1.0.0';
+
+        return $body;
     }
 }
