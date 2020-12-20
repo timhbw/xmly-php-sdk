@@ -26,7 +26,7 @@ final class AodManager
     /**
      * 点播-免费内容-获取分类列表
      *
-     * @param array $body
+     * @param array $body 请求参数
      * @param null $serverAuthStaticKey
      * @return array
      *
@@ -44,9 +44,49 @@ final class AodManager
     }
 
     /**
+     * 点播-免费内容-获取标签列表
+     *
+     * @param array $body 请求参数
+     * @param null $serverAuthStaticKey
+     * @return array
+     *
+     * @link https://open.ximalaya.com/doc/detailApi?categoryId=10&articleId=6#%E6%A0%87%E7%AD%BE%E5%88%97%E8%A1%A8
+     */
+    public function getTagsList($body, $serverAuthStaticKey = null)
+    {
+        $scheme = "http://";
+        if ($this->config->useHTTPS === true) {
+            $scheme = "https://";
+        }
+        $sigURL = $this->auth->signatureURL($body, $serverAuthStaticKey);
+        $url = $scheme . Config::API_HOST . '/v2/tags/list?' . $sigURL;
+        return $this->get($url);
+    }
+
+    /**
+     * 点播-免费内容-获取专辑列表
+     *
+     * @param array $body 请求参数
+     * @param null $serverAuthStaticKey
+     * @return array
+     *
+     * @link https://open.ximalaya.com/doc/detailApi?categoryId=10&articleId=6#%E4%B8%93%E8%BE%91%E5%88%97%E8%A1%A8
+     */
+    public function getAlbumsList($body, $serverAuthStaticKey = null)
+    {
+        $scheme = "http://";
+        if ($this->config->useHTTPS === true) {
+            $scheme = "https://";
+        }
+        $sigURL = $this->auth->signatureURL($body, $serverAuthStaticKey);
+        $url = $scheme . Config::API_HOST . '/v2/albums/list?' . $sigURL;
+        return $this->get($url);
+    }
+
+    /**
      * 点播-主播-获取主播分类列表
      *
-     * @param array $body
+     * @param array $body 请求参数
      * @param null $serverAuthStaticKey
      * @return array
      *
