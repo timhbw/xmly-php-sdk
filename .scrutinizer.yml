@@ -21,7 +21,7 @@ tools:
         timeout: 1200
         runs: 3
     php_analyzer: true
-    php_code_coverage: true
+    php_code_coverage: false
     php_code_sniffer:
         config:
             standard: PSR2
@@ -39,16 +39,9 @@ build:
             version: 7.4
     dependencies:
         before:
-            - composer require phpunit/phpunit:^8.5
+            - composer install
     nodes:
         analysis:
             tests:
                 override:
                     - php-scrutinizer-run
-        coverage:
-            tests:
-                override:
-                    - command: ./vendor/bin/phpunit --coverage-clover=coverage.clover
-                      coverage:
-                          file: coverage.clover
-                          format: clover
