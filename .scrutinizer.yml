@@ -33,10 +33,3 @@ tools:
     php_cpd:
         enabled: true
         excluded_dirs: [vendor, tests]
-build:
-    environment:
-        php:
-            version: 7.4
-    dependencies:
-        before:
-            - composer install
