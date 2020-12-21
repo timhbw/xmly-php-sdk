@@ -40,8 +40,3 @@ build:
     dependencies:
         before:
             - composer install
-    nodes:
-        analysis:
-            tests:
-                override:
-                    - php-scrutinizer-run
