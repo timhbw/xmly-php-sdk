@@ -5,7 +5,8 @@
 [![Latest Stable Version](https://img.shields.io/packagist/v/timhbw/xmly-php-sdk.svg)](https://packagist.org/packages/timhbw/xmly-php-sdk)
 [![Total Downloads](https://img.shields.io/packagist/dt/timhbw/xmly-php-sdk.svg)](https://packagist.org/packages/timhbw/xmly-php-sdk)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/timhbw/xmly-php-sdk/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/timhbw/xmly-php-sdk/?branch=master)
-[![Coverage Status](https://codecov.io/gh/timhbw/xmly-php-sdk/branch/master/graph/badge.svg)](https://codecov.io/gh/timhbw/xmly-php-sdk)
+[![codecov](https://codecov.io/gh/timhbw/xmly-php-sdk/branch/main/graph/badge.svg?token=Zvredk5XBB)](https://codecov.io/gh/timhbw/xmly-php-sdk)
+![Packagist PHP Version Support](https://img.shields.io/packagist/php-v/timhbw/xmly-php-sdk)
 
 - 使用方法可以参考 [examples](https://github.com/timhbw/xmly-php-sdk/tree/main/examples) 文件夹下的文件
 
