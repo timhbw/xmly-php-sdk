@@ -8,9 +8,9 @@ php:
 dist: trusty
 os: linux
 
-before_script:
+install:
   - travis_retry composer self-update
-  - travis_retry composer install --no-interaction --prefer-source
+  - travis_retry composer install --no-interaction  --prefer-source
 
 script:
   - ./vendor/bin/phpcs --standard=PSR2 src
@@ -18,13 +18,14 @@ script:
   - ./vendor/bin/phpcs --standard=PSR2 tests
   - ./vendor/bin/phpunit --coverage-clover=coverage.clover
 
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+  - wget https://scrutinizer-ci.com/ocular.phar
+  - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
+
 env:
   global:
     - XMLY_APP_KEY=99b37417e1185eda1378600593b45c40
     - XMLY_APP_SECRET=dd7a46b12fe8a304ef17892c89ede22a
     - XMLY_DEVICE_ID=32cc6f279c7a11e9a26e0235d2b38928
-
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
-  - wget https://scrutinizer-ci.com/ocular.phar
-  - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
+    - XDEBUG_MODE=coverage
