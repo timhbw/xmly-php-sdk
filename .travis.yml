@@ -8,7 +8,7 @@ php:
 dist: trusty
 os: linux
 
-install:
+before_install:
   - travis_retry composer self-update --2
   - travis_retry composer install --no-interaction  --prefer-source
 
