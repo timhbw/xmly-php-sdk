@@ -23,4 +23,4 @@
 - 接口请求
 
 ## 快速入门
-参照 Democ 程序，详见  [examples](https://github.com/timhbw/xmly-php-sdk/tree/main/examples) 目录下的文件
+参照 Demo 程序，详见  [examples](https://github.com/timhbw/xmly-php-sdk/tree/main/examples) 目录下的文件
