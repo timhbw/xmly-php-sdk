@@ -52,6 +52,7 @@ final class OAuth2Manager
         }
         $url = $scheme . Config::API_HOST . '/oauth2/v2/access_token';
 
+        $headers = array();
         $headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
         $response = Client::post($url, $data, $headers);
 
@@ -89,6 +90,7 @@ final class OAuth2Manager
         }
         $url = $scheme . Config::API_HOST . '/oauth2/refresh_token';
 
+        $headers = array();
         $headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
         $response = Client::post($url, $data, $headers);
 
@@ -122,6 +124,7 @@ final class OAuth2Manager
         }
         $url = $scheme . Config::API_HOST . '/oauth2/get_token_info?' . $data;
 
+        $headers = array();
         $headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
         $response = Client::get($url, $headers);
 

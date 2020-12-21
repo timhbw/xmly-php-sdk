@@ -61,7 +61,7 @@ final class Auth
      * 并对得到的字符串进行Base64编码，如果传入
      *
      * @param array $body 除sig以外的所有请求参数
-     * @param null $serverAuthenticateStaticKey 服务端密钥
+     * @param string $serverAuthenticateStaticKey 服务端密钥
      * @return string
      */
     public function signRequest($body, $serverAuthenticateStaticKey = null)
@@ -75,7 +75,7 @@ final class Auth
      * 通用签名生成
      *
      * @param array $body 除sig以外的所有请求参数
-     * @param null $serverAuthenticateStaticKey 服务端密钥
+     * @param string $serverAuthenticateStaticKey 服务端密钥
      * @return string
      *
      * @link https://open.ximalaya.com/doc/detailApi?categoryId=6&articleId=69#%E9%80%9A%E7%94%A8%E7%AD%BE%E5%90%8D%E7%94%9F%E6%88%90%E7%AE%97%E6%B3%95
@@ -89,7 +89,7 @@ final class Auth
      * 拼接带 sig 参数完整的请求 URL
      *
      * @param array $body 除sig以外的所有请求参数
-     * @param null $serverAuthenticateStaticKey 服务端密钥
+     * @param string $serverAuthenticateStaticKey 服务端密钥
      * @return string
      */
     public function signatureURL($body, $serverAuthenticateStaticKey = null)
@@ -100,6 +100,12 @@ final class Auth
         return $requestURL . $sig;
     }
 
+    /**
+     * 公共参数
+     *
+     * @param array $body 其他请求参数
+     * @return array
+     */
     public function commonParams(array $body = array())
     {
         $body['app_key'] = $this->getAppKey();
