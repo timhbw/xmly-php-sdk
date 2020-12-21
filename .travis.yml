@@ -21,7 +21,7 @@ script:
 after_success:
   - bash <(curl -s https://codecov.io/bash)
   - wget https://scrutinizer-ci.com/ocular.phar
-  - php ocular.phar code-coverage:upload --format=php-clover coverage.xml
+  - php ocular.phar code-coverage:upload --access-token="1f2b87ee0c3a7414cfabfc093bae56cea190c48eae54f770053fe42d105bab9a" --format=php-clover coverage.xml
 
 env:
   global:
