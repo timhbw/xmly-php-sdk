@@ -8,10 +8,19 @@
 [![codecov](https://codecov.io/gh/timhbw/xmly-php-sdk/branch/main/graph/badge.svg?token=Zvredk5XBB)](https://codecov.io/gh/timhbw/xmly-php-sdk)
 ![Packagist PHP Version Support](https://img.shields.io/packagist/php-v/timhbw/xmly-php-sdk)
 
+## 安装
+- Composer 方式
+- Phar 方式
+- 源码方式
+
 ## 运行环境
 - PHP 5.3+.
 - cURL extension.
 
 ## 使用方法
-- 使用方法可以参考 [examples](https://github.com/timhbw/xmly-php-sdk/tree/main/examples) 文件夹下的文件
+- 发起 Get 请求
+- 发起 Post 请求
+- 接口请求
 
+## 快速入门
+参照 Democ 程序，详见  [examples](https://github.com/timhbw/xmly-php-sdk/tree/main/examples) 目录下的文件
