@@ -8,5 +8,10 @@
 [![codecov](https://codecov.io/gh/timhbw/xmly-php-sdk/branch/main/graph/badge.svg?token=Zvredk5XBB)](https://codecov.io/gh/timhbw/xmly-php-sdk)
 ![Packagist PHP Version Support](https://img.shields.io/packagist/php-v/timhbw/xmly-php-sdk)
 
+## 运行环境
+- PHP 5.3+.
+- cURL extension.
+
+## 使用方法
 - 使用方法可以参考 [examples](https://github.com/timhbw/xmly-php-sdk/tree/main/examples) 文件夹下的文件
 
