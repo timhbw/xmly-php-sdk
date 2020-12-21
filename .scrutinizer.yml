@@ -36,27 +36,7 @@ tools:
 build:
     nodes:
         analysis:
-            project_setup:
-                override:
-                    - 'true'
             tests:
                 override:
                     - php-scrutinizer-run
-                    -
-                        command: phpcs-run
-                        use_website_config: true
-        tests: true
-        coverage:
-            tests:
-                override:
-                    - command: ./vendor/bin/phpunit --coverage-clover=coverage.xml
-                      coverage:
-                        file: coverage.xml
-                        format: clover
-coding_style:
-    php:
-        spaces:
-            around_operators:
-                concatenation: true
-            other:
-                after_type_cast: false
+
