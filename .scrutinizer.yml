@@ -34,6 +34,12 @@ tools:
         enabled: true
         excluded_dirs: [vendor, tests]
 build:
+    environment:
+        php:
+            version: 7.4
+    dependencies:
+        before:
+            - composer require phpunit/phpunit:^8.5
     nodes:
         analysis:
             tests:
