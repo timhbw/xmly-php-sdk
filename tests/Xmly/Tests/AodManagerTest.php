@@ -34,8 +34,7 @@ class AodManagerTest extends TestCase
         $this->assertNotNull($ret);
         $this->assertNull($error);
 
-        list($ret2, $error2) = $this->dummyAodManager->getCategoriesList(testCommonParams(),
-            $this->serverAuthStaticKey);
+        list($ret2, $error2) = $this->dummyAodManager->getCategoriesList(testCommonParams(), $this->serverAuthStaticKey);
         $this->assertNull($ret2);
         $this->assertNotNull($error2);
     }
