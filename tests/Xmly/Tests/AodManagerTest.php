@@ -5,12 +5,12 @@ namespace Xmly\Tests;
 use PHPUnit\Framework\TestCase;
 use Xmly\API\AodManager;
 use Xmly\Config;
-use Xmly\Util;
 
 class AodManagerTest extends TestCase
 {
 
     protected $aodManager;
+    protected $dummyAodManager;
     protected $serverAuthStaticKey;
 
     protected function setUp(): void
@@ -25,7 +25,7 @@ class AodManagerTest extends TestCase
         $config = new Config();
         $config->useHTTPS = true;
         $config->enableLogs = true;
-        $this->dummyaodManager = new AodManager($dummyAuth, $config);
+        $this->dummyAodManager = new AodManager($dummyAuth, $config);
     }
 
     public function testGetCategoriesList()
@@ -34,9 +34,10 @@ class AodManagerTest extends TestCase
         $this->assertNotNull($ret);
         $this->assertNull($error);
 
-        list($ret, $error) = $this->dummyaodManager->getCategoriesList(testCommonParams(), $this->serverAuthStaticKey);
-        $this->assertNull($ret);
-        $this->assertNotNull($error);
+        list($ret2, $error2) = $this->dummyAodManager->getCategoriesList(testCommonParams(),
+            $this->serverAuthStaticKey);
+        $this->assertNull($ret2);
+        $this->assertNotNull($error2);
     }
 
     public function testGetAnnouncersCategories()
