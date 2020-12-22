@@ -9,9 +9,15 @@ $timestamp = Util::msecTime();
 $nonce = Util::randomString();
 
 //1、拿到除了sig以外的所有请求参数的原始值
-//$urlParam = 'app_key=99b37417e1185eda1378600593b45c40&client_os_type=4&nonce=' . $nonce . '&timestamp=' . $timestamp . '&device_id=2dfde78d016947e2982c734930951d55&server_api_version=1.0.0';
-$urlEncode = '%7B%22client_id%22%3A%22b617866c20482d133d5de66fceb37da3%22%2C%22device_id%22%3A%220a3751e0-903e-495d-8230-827e41ff7990%22%2C%22nonce%22%3A%22sbby2hyM9M%22%2C%22timestamp%22%3A1566285175413%2C%22grant_type%22%3A%22js_client_credentials%22%7D';
-$urlParam =  urldecode($urlEncode);
+//$urlParam = 'app_key=99b37417e1185eda1378600593b45c40&client_os_type=4&nonce='
+//    . $nonce . '&timestamp=' . $timestamp
+//    . '&device_id=2dfde78d016947e2982c734930951d55&server_api_version=1.0.0';
+$urlEncode
+    = '%7B%22client_id%22%3A%22b617866c20482d133d5de66fceb37da3%22%2C%22
+    device_id%22%3A%220a3751e0-903e-495d-8230-827e41ff7990%22%2C%22
+    nonce%22%3A%22sbby2hyM9M%22%2C%22timestamp%22%3A1566285175413%2C%22
+    grant_type%22%3A%22js_client_credentials%22%7D';
+$urlParam = urldecode($urlEncode);
 
 //2、将【排序后】的参数键值对用&拼接
 $params_arr = json_decode($urlParam, true);
