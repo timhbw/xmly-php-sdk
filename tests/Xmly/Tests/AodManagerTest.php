@@ -19,8 +19,13 @@ class AodManagerTest extends TestCase
         $this->serverAuthStaticKey = $serverAuthStaticKey;
 
         global $testAuth;
+        $this->aodManager = new AodManager($testAuth);
+
+        global $dummyAuth;
         $config = new Config();
-        $this->aodManager = new AodManager($testAuth, $config);
+        $config->useHTTPS = true;
+        $config->enableLogs = true;
+        $this->dummyaodManager = new AodManager($dummyAuth, $config);
     }
 
     public function testGetCategoriesList()
@@ -28,6 +33,10 @@ class AodManagerTest extends TestCase
         list($ret, $error) = $this->aodManager->getCategoriesList(testCommonParams(), $this->serverAuthStaticKey);
         $this->assertNotNull($ret);
         $this->assertNull($error);
+
+        list($ret, $error) = $this->dummyaodManager->getCategoriesList(testCommonParams(), $this->serverAuthStaticKey);
+        $this->assertNull($ret);
+        $this->assertNotNull($error);
     }
 
     public function testGetAnnouncersCategories()
