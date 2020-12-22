@@ -25,10 +25,10 @@ final class OAuth2Manager
     /**
      * 获取访问令牌
      *
-     * @param string $code
-     * @param string $redirect_uri
-     * @param string $state
-     * @param string $grant_type
+     * @param  string $code
+     * @param  string $redirect_uri
+     * @param  string $state
+     * @param  string $grant_type
      * @return array
      *
      * @link https://open.ximalaya.com/doc/detailApi?categoryId=9&articleId=5#%E8%8E%B7%E5%8F%96%E8%AE%BF%E9%97%AE%E4%BB%A4%E7%89%8C
@@ -65,9 +65,9 @@ final class OAuth2Manager
     /**
      * 刷新访问令牌
      *
-     * @param string $refresh_token 刷新令牌参数，从 /oauth2/v2/access_token 返回
-     * @param string $redirect_uri OAuth2回调地址，即创建应用时填写的回调地址。使用时请对它的值进行URL编码处理，并最好提供https地址
-     * @param string $grant_type 授权模式，固定值"refresh_token"
+     * @param  string $refresh_token 刷新令牌参数，从 /oauth2/v2/access_token 返回
+     * @param  string $redirect_uri  OAuth2回调地址，即创建应用时填写的回调地址。使用时请对它的值进行URL编码处理，并最好提供https地址
+     * @param  string $grant_type    授权模式，固定值"refresh_token"
      * @return array
      *
      * @link https://open.ximalaya.com/doc/detailApi?categoryId=9&articleId=5#%E5%88%B7%E6%96%B0%E8%AE%BF%E9%97%AE%E4%BB%A4%E7%89%8C
@@ -103,7 +103,7 @@ final class OAuth2Manager
     /**
      * 查询访问令牌
      *
-     * @param string $access_token 访问令牌
+     * @param  string $access_token 访问令牌
      * @return array
      *
      * @link https://open.ximalaya.com/doc/detailApi?categoryId=9&articleId=5#%E6%9F%A5%E8%AF%A2%E8%AE%BF%E9%97%AE%E4%BB%A4%E7%89%8C

@@ -16,7 +16,9 @@ final class Response
     private $jsonData;
     public $duration;
 
-    /** @var array Mapping of status codes to reason phrases */
+    /**
+     * @var array Mapping of status codes to reason phrases 
+     */
     private static $statusTexts = array(
         100 => 'Continue',
         101 => 'Switching Protocols',
@@ -79,11 +81,11 @@ final class Response
     );
 
     /**
-     * @param int $code 状态码
+     * @param int    $code     状态码
      * @param double $duration 请求时长
-     * @param array $headers 响应头部
-     * @param string $body 响应内容
-     * @param string $error 错误描述
+     * @param array  $headers  响应头部
+     * @param string $body     响应内容
+     * @param string $error    错误描述
      */
     public function __construct($code, $duration, array $headers = array(), $body = null, $error = null)
     {
