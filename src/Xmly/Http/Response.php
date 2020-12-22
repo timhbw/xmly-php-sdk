@@ -17,7 +17,7 @@ final class Response
     public $duration;
 
     /**
-     * @var array Mapping of status codes to reason phrases 
+     * @var array Mapping of status codes to reason phrases
      */
     private static $statusTexts = array(
         100 => 'Continue',
