@@ -29,6 +29,7 @@ class OAuth2ManagerTest extends TestCase
         list($ret, $err) = $this->oauth2Manager->getAccessToken('123', 'test.com', 'test');
         $this->assertNull($ret);
         $this->assertNotNull($err);
+        $this->assertNotNull($err->message());
 
         list($ret, $err) = $this->dummyOauth2Manager->getAccessToken('123', 'test.com', 'test');
         $this->assertNull($ret);

@@ -41,7 +41,8 @@ class AodManagerTest extends TestCase
 
         list($ret, $error2) = $this->dummyAodManager->getCategoriesList(testCommonParams(), $this->serverAuthStaticKey);
         $this->assertNull($ret);
-        $this->assertNotNull($error2);
+        $this->assertNotNull($error2->getResponse());
+        $this->assertEquals(401, $error2->code());
     }
 
     public function testGetAnnouncersCategories()
