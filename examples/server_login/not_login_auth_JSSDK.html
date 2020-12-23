@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> 喜马拉雅|H5 </title>
+    <script src="https://s1.xmcdn.com/yx/web-jssdk/last/dist_cdn/1.4.4/xmsdk.min.js"></script>
+</head>
+<body>
+<h2 align="center"> 免登录授权|喜马拉雅 JS SDK </h2>
+<div id="main">
+
+</div>
+
+</body>
+
+<script type="text/javascript">
+    const { config, XMLY, XMplayer } = window.xmsdk
+
+    config({
+        app_key: '5d96523d111d6729658fe2587efd4e6f', // 必传，官方提供的 app_key：b617866c20482d133d5de66fceb37da3 仅供测试，有调用次数限制，上线需替换为自己的 app_key。
+        sig_url: 'http://127.0.0.1:8000/oauth2/get_signature',
+        debug: true, // 是否在控制台打印日志
+    })
+
+    // 创建 XMLY 实例
+    const xmly = new XMLY()
+
+    // 调用接口获取喜马拉雅数据
+    // 获取分类列表
+    xmly.get('https://api.ximalaya.com/categories/list').then(res => {
+        console.log(res)
+        document.getElementById("main").innerHTML=JSON.stringify( res.data );;
+    })
+
+    const player = new XMplayer({
+        playlist: [182889380]
+    })
+    // // 绑定事件，点击触发开始播放 —— 绝大多数浏览器都禁止了js自动播放音频，需要用户主动交互操作触发播放
+    // document.getElementById('play-btn').addEventListener('click', () => {
+    //     // 调用播放器的 play() 方法开始播放
+    //     player.play()
+    // })
+
+    player.play()
+</script>
+</html>
