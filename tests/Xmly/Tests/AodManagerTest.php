@@ -74,4 +74,24 @@ class AodManagerTest extends TestCase
         $this->assertNotNull($ret);
         $this->assertNull($error);
     }
+
+    public function testGetAlbumsBrowse()
+    {
+        $param['album_id'] = 6922889;
+        $param['sort'] = 'time_asc';
+        $body = testCommonParams($param);
+        list($ret, $error) = $this->aodManager->getAlbumsBrowse($body, $this->serverAuthStaticKey);
+        $this->assertNotNull($ret);
+        $this->assertNull($error);
+    }
+
+    public function testGetAlbumsGetBatch()
+    {
+        $param['ids'] = '6922889,8139811,6255099';
+        $param['with_metadata'] = false;
+        $body = testCommonParams($param);
+        list($ret, $error) = $this->aodManager->getAlbumsGetBatch($body, $this->serverAuthStaticKey);
+        $this->assertNotNull($ret);
+        $this->assertNull($error);
+    }
 }
