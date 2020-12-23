@@ -84,6 +84,46 @@ final class AodManager
     }
 
     /**
+     * 点播-免费内容-获取专辑下的声音列表
+     *
+     * @param  array  $body                请求参数
+     * @param  string $serverAuthStaticKey
+     * @return array
+     *
+     * @link https://open.ximalaya.com/doc/detailApi?categoryId=10&articleId=6#%E8%8E%B7%E5%8F%96%E4%B8%93%E8%BE%91%E4%B8%8B%E7%9A%84%E5%A3%B0%E9%9F%B3%E5%88%97%E8%A1%A8
+     */
+    public function getAlbumsBrowse($body, $serverAuthStaticKey = null)
+    {
+        $scheme = "http://";
+        if ($this->config->useHTTPS === true) {
+            $scheme = "https://";
+        }
+        $sigURL = $this->auth->signatureURL($body, $serverAuthStaticKey);
+        $url = $scheme . Config::API_HOST . '/albums/browse?' . $sigURL;
+        return $this->get($url);
+    }
+
+    /**
+     * 点播-免费内容-批量获取专辑信息
+     *
+     * @param  array  $body                请求参数
+     * @param  string $serverAuthStaticKey
+     * @return array
+     *
+     * @link https://open.ximalaya.com/doc/detailApi?categoryId=10&articleId=6#%E6%89%B9%E9%87%8F%E8%8E%B7%E5%8F%96%E4%B8%93%E8%BE%91%E4%BF%A1%E6%81%AF
+     */
+    public function getAlbumsGetBatch($body, $serverAuthStaticKey = null)
+    {
+        $scheme = "http://";
+        if ($this->config->useHTTPS === true) {
+            $scheme = "https://";
+        }
+        $sigURL = $this->auth->signatureURL($body, $serverAuthStaticKey);
+        $url = $scheme . Config::API_HOST . '/albums/get_batch?' . $sigURL;
+        return $this->get($url);
+    }
+
+    /**
      * 点播-主播-获取主播分类列表
      *
      * @param  array  $body                请求参数
