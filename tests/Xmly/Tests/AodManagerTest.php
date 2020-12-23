@@ -22,7 +22,7 @@ class AodManagerTest extends TestCase
         $config = new Config();
         $config->useHTTPS = true;
         $config->enableLogs = true;
-        $this->aodManager = new AodManager($testAuth);
+        $this->aodManager = new AodManager($testAuth, $config);
 
         global $dummyAuth;
         $config = new Config();
