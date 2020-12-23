@@ -17,6 +17,7 @@ before_install:
   - travis_retry composer install --no-interaction  --prefer-source
 
 script:
+  - rm -rf .xmly_sdk/logs
   - ./vendor/bin/phpcs --standard=PSR2 src
   - ./vendor/bin/phpcs --standard=PSR2 examples
   - ./vendor/bin/phpcs --standard=PSR2 tests
