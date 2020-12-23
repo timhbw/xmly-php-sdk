@@ -25,10 +25,7 @@ class AodManagerTest extends TestCase
         $this->aodManager = new AodManager($testAuth, $config);
 
         global $dummyAuth;
-        $config = new Config();
-        $config->useHTTPS = true;
-        $config->enableLogs = true;
-        $this->dummyAodManager = new AodManager($dummyAuth, $config);
+        $this->dummyAodManager = new AodManager($dummyAuth);
     }
 
     public function testGetCategoriesList()
