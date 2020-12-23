@@ -19,7 +19,7 @@ $urlParam['server_api_version'] = '1.0.0';
 
 //2、将参数进行【排序】并生成 URL-encode 之后的请求字符串
 ksort($urlParam, SORT_STRING);
-$sortURL = http_build_query($urlParam);
+$sortURL = urldecode(http_build_query($urlParam));
 
 //3、步骤2得到的字符串进行Base64编码
 $base64EncodedStr = base64_encode($sortURL);

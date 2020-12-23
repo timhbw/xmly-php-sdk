@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> 喜马拉雅|H5 </title>
+    <script src="https://s1.xmcdn.com/yx/web-jssdk/last/dist_cdn/1.4.4/xmsdk.min.js"></script>
+</head>
+<body>
+<h2 align="center"> 标准登录授权|喜马拉雅 JS SDK </h2>
+
+</body>
+
+<script type="text/javascript">
+    const { config, XMLY, XMplayer } = window.xmsdk
+
+    config({
+        app_key: '5d96523d111d6729658fe2587efd4e6f', // 必传，官方提供的 app_key：b617866c20482d133d5de66fceb37da3 仅供测试，有调用次数限制，上线需替换为自己的 app_key。
+        get_access_token: getAccessToken, // 标准登录授权，必须传 get_access_token 参数，值为 js 函数，和 sig_url 互斥
+        debug: true, // 是否在控制台打印日志
+    })
+
+    // 获取访问令牌 access_token，函数的返回值为字符串（即：access_token 的值）
+    function getAccessToken() {
+    // 您需要在此处，书写授权逻辑
+    // 确保返回有效的 access_token 值
+
+    return 'f28fcd82123b23ef723c53c2ad7828c9' // return 返回有效的 access_token 值
+    }
+
+    // // 创建 XMLY 实例
+    const xmly = new XMLY()
+    xmly.authorize({
+        redirect_uri: 'https://111.timhbw.com/oauth2/get_access_token', // 授权成功后的回跳地址（不传会默认取 window.location.href），可以指定为自己想要跳转的任意地址，但必须和开发者在喜马拉雅开放平台 - 管理中心 - 应用中心的应用信息里，设置的“oauth2授权回调地址”一致（协议、域名一致即可）
+        state: 'abc' // 用户需要携带的数据（必须是字符串）
+    })
+
+    // 调用接口获取喜马拉雅数据
+    // 获取分类列表
+    xmly.get('https://api.ximalaya.com/categories/list').then(res => {
+        console.log(res)
+    })
+
+</script>
+</html>
