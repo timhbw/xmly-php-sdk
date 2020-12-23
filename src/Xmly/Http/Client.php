@@ -12,21 +12,9 @@ final class Client
         return self::sendRequest($request);
     }
 
-    public static function delete($url, array $headers = array())
-    {
-        $request = new Request('DELETE', $url, $headers);
-        return self::sendRequest($request);
-    }
-
     public static function post($url, $body, array $headers = array())
     {
         $request = new Request('POST', $url, $headers, $body);
-        return self::sendRequest($request);
-    }
-
-    public static function PUT($url, $body, array $headers = array())
-    {
-        $request = new Request('PUT', $url, $headers, $body);
         return self::sendRequest($request);
     }
 
