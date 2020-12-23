@@ -19,6 +19,9 @@ class AodManagerTest extends TestCase
         $this->serverAuthStaticKey = $serverAuthStaticKey;
 
         global $testAuth;
+        $config = new Config();
+        $config->useHTTPS = true;
+        $config->enableLogs = true;
         $this->aodManager = new AodManager($testAuth);
 
         global $dummyAuth;
