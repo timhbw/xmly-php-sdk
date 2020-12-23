@@ -18,7 +18,7 @@ class OAuth2ManagerTest extends TestCase
         $config = new Config();
         $config->useHTTPS = true;
         $config->enableLogs = true;
-        $this->oauth2Manager = new OAuth2Manager($testAuth,$config);
+        $this->oauth2Manager = new OAuth2Manager($testAuth, $config);
 
         global $dummyAuth;
         $this->dummyOauth2Manager = new OAuth2Manager($dummyAuth);
