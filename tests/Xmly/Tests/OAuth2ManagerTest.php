@@ -41,6 +41,10 @@ class OAuth2ManagerTest extends TestCase
         list($ret, $err) = $this->oauth2Manager->getAccessTokenInfo('token');
         $this->assertNull($ret);
         $this->assertNotNull($err);
+
+        list($ret01, $err01) = $this->oauth2Manager->getAccessTokenInfo('31547ae169e19c369a2a67419fbc977d');
+        $this->assertNotNull($ret01);
+        $this->assertNull($err01);
     }
 
     public function testRefreshAccessToken()
@@ -48,5 +52,12 @@ class OAuth2ManagerTest extends TestCase
         list($ret, $err) = $this->oauth2Manager->refreshAccessToken('token', 'test.com');
         $this->assertNull($ret);
         $this->assertNotNull($err);
+
+        list($ret01, $err01) = $this->dummyOauth2Manager->refreshAccessToken(
+            '1f88f43c80ca089b52f24327b15a1fe0',
+            'https://xmly.timhbw.com/oauth2/get_access_token'
+        );
+        $this->assertNotNull($ret01);
+        $this->assertNull($err01);
     }
 }
