@@ -5,13 +5,15 @@ use Xmly\Http\Client;
 
 $url = 'https://api.ximalaya.com/oauth2/v2/access_token';
 
+$code = $_GET["code"];
+
 $params = array(
     'client_id'     => '5d96523d111d6729658fe2587efd4e6f',
     'client_secret' => '40d396d4f50da3c46133fa43e8889643',
     'device_id'     => '32cc6f279c7a11e9a26e0235d2b38928',
-    'code'          => '31a87e698d3009e85779bd590eee258b',
-    'redirect_uri'  => 'https://timhbw.com/oauth2/get_access_token',
-    'state'         => '1234',
+    'code'          => $code,
+    'redirect_uri'  => 'https://xxx.xxx.com/OAuth2_getAccessToken_server.php',
+    'state'         => 'state',
     'grant_type'    => 'authorization_code'
 );
 
@@ -23,5 +25,6 @@ $headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
 $body = http_build_query($params);
 
 $response = Client::post($url, $body, $headers);
-var_dump($response);
-//echo json_decode($response);
+
+header('Content-Type:application/json; charset=UTF-8');
+exit($response->body);

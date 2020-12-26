@@ -6,7 +6,7 @@
     <script src="https://s1.xmcdn.com/yx/web-jssdk/last/dist_cdn/1.4.4/xmsdk.min.js"></script>
 </head>
 <body>
-<h2 align="center"> 免登录授权|喜马拉雅 JS SDK </h2>
+<h2 style="text-align:center"> 免登录授权|喜马拉雅 JS SDK </h2>
 <div id="main">
 
 </div>
@@ -18,7 +18,7 @@
 
     config({
         app_key: '5d96523d111d6729658fe2587efd4e6f', // 必传，官方提供的 app_key：b617866c20482d133d5de66fceb37da3 仅供测试，有调用次数限制，上线需替换为自己的 app_key。
-        sig_url: 'http://127.0.0.1:8000/oauth2/get_signature',
+        sig_url: 'https://xxx.xxx.com/oauth2/auth_generateSignature_JS.php',
         debug: true, // 是否在控制台打印日志
     })
 

@@ -34,4 +34,4 @@ $response = array(
 );
 
 // 8、返回 js sdk 要求的 json 格式
-echo json_encode($response);
+exit(json_encode($response));
