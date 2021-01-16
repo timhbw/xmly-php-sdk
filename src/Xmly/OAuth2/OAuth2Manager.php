@@ -124,11 +124,11 @@ final class OAuth2Manager
         if ($this->config->useHTTPS === true) {
             $scheme = "https://";
         }
-        $url = $scheme . Config::API_HOST . '/oauth2/revoke_token?' . $data;
+        $url = $scheme . Config::API_HOST . '/oauth2/revoke_token';
 
         $headers = array();
         $headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
-        $response = Client::post($url, null, $headers);
+        $response = Client::post($url, $data, $headers);
 
         if (!$response->ok()) {
             return array(null, new Error($url, $response));
