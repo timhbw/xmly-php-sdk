@@ -169,4 +169,40 @@ final class OAuth2Manager
         }
         return array($response->json(), null);
     }
+
+    /**
+     * 回收刷新访问令牌
+     *
+     * @param string $redirect_uri OAuth2回调地址，即创建应用时填写的回调地址。使用时请对它的值进行URL编码处理，并最好提供https地址
+     * @param string $refresh_token 刷新访问令牌
+     * @return array
+     *
+     * @link https://open.ximalaya.com/doc/detailApi?categoryId=9&articleId=5#%E5%9B%9E%E6%94%B6%E5%88%B7%E6%96%B0%E8%AE%BF%E9%97%AE%E4%BB%A4%E7%89%8C
+     */
+    public function revokeRefreshToken($redirect_uri, $refresh_token)
+    {
+        $params = array(
+            'client_id' => $this->auth->getAppKey(),
+            'client_secret' => $this->auth->getAppSecret(),
+            'device_id' => $this->auth->getdeviceID(),
+            'redirect_uri' => $redirect_uri,
+            'refresh_token' => $refresh_token
+        );
+        $data = http_build_query($params);
+
+        $scheme = "http://";
+        if ($this->config->useHTTPS === true) {
+            $scheme = "https://";
+        }
+        $url = $scheme . Config::API_HOST . '/oauth2/revoke_refresh_token?' . $data;
+
+        $headers = array();
+        $headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
+        $response = Client::post($url, null, $headers);
+
+        if (!$response->ok()) {
+            return array(null, new Error($url, $response));
+        }
+        return array($response->json(), null);
+    }
 }
