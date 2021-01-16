@@ -12,8 +12,8 @@ $testAuth = new Auth($appKey, $appSecret, $deviceID);
 
 $serverAuthStaticKey = 'XEbin4wC';
 
-$dummyappKey = '5d96523d111d6729658fe2587efd4e6f';
-$dummyappSecret = '40d396d4f50da3c46133fa43e8889643';
+$dummyappKey = '7605b87e5d32547b3635831f49e6f6fd';
+$dummyappSecret = 'ebb13babf5ca49fd4266bad491874338';
 $dummydeviceID = '32cc6f279c7a11e9a26e0235d2b38928';
 $dummyAuth = new Auth($dummyappKey, $dummyappSecret, $dummydeviceID);
 
