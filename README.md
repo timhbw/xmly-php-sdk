@@ -40,6 +40,10 @@ Composer 是 PHP 的依赖管理工具，支持您项目所需的依赖项，并
 - PHP 5.3+.
 - cURL extension.
 
+## 通用签名生成算法
+  - [官方文档](https://open.ximalaya.com/doc/detailApi?categoryId=6&articleId=69#%E9%80%9A%E7%94%A8%E7%AD%BE%E5%90%8D%E7%94%9F%E6%88%90%E7%AE%97%E6%B3%95)
+  - [实现代码与思路](https://github.com/timhbw/xmly-php-sdk/blob/main/examples/auth_generateSig_Server.php)
+
 ## 使用方法
 - SDK 内已封装的接口：直接调用，比如获取专辑列表：
   ```php
