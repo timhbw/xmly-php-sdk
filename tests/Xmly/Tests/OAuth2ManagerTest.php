@@ -67,7 +67,6 @@ class OAuth2ManagerTest extends TestCase
             'https://xmly.timhbw.com/oauth2/get_access_token',
             'be5575cd78e92d862182cbb8eae1ad9b'
         );
-        var_dump($err);
         $this->assertNotNull($ret);
         $this->assertNull($err);
     }
