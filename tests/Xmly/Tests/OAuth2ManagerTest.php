@@ -69,6 +69,7 @@ class OAuth2ManagerTest extends TestCase
         );
         $this->assertNotNull($ret);
         $this->assertNull($err);
+        var_dump($err);
     }
 
     public function testRevokeRefreshToken()
