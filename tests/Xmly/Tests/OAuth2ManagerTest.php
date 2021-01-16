@@ -67,8 +67,9 @@ class OAuth2ManagerTest extends TestCase
             'https://xmly.timhbw.com/oauth2/get_access_token',
             'be5575cd78e92d862182cbb8eae1ad9b'
         );
-        $this->assertNotNull($ret);
-        $this->assertNull($err);
+        $this->assertNull($ret);
+        $this->assertNotNull($err);
+        $this->assertEquals(400, $err->code());
     }
 
     public function testRevokeRefreshToken()
@@ -77,7 +78,8 @@ class OAuth2ManagerTest extends TestCase
             'https://xmly.timhbw.com/oauth2/get_access_token',
             '9b180eb27aa7ba19d33a3a106fb0270d'
         );
-        $this->assertNotNull($ret);
-        $this->assertNull($err);
+        $this->assertNull($ret);
+        $this->assertNotNull($err);
+        $this->assertEquals(400, $err->code());
     }
 }
