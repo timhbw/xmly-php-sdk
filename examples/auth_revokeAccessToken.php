@@ -5,7 +5,7 @@ use Xmly\Auth;
 use Xmly\Config;
 use Xmly\OAuth2\OAuth2Manager;
 
-$appKey = '7605b87e5d32547b3635831f49e6f6fd';
+$appKey = 'xxxxxx';
 $appSecret = 'xxxxxx';
 $deviceID = '32cc6f279c7a11e9a26e0235d2b38928';
 

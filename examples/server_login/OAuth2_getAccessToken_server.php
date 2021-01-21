@@ -8,8 +8,8 @@ $url = 'https://api.ximalaya.com/oauth2/v2/access_token';
 $code = $_GET["code"];
 
 $params = array(
-    'client_id'     => '5d96523d111d6729658fe2587efd4e6f',
-    'client_secret' => '40d396d4f50da3c46133fa43e8889643',
+    'client_id'     => 'xxxxxx',
+    'client_secret' => 'xxxxxx',
     'device_id'     => '32cc6f279c7a11e9a26e0235d2b38928',
     'code'          => $code,
     'redirect_uri'  => 'https://xxx.xxx.com/OAuth2_getAccessToken_server.php',

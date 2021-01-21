@@ -10,7 +10,7 @@ $api = 'http://api.ximalaya.com/categories/list';
 
 //1、拿到除了sig以外的所有请求参数的原始值
 $urlParam = array();
-$urlParam['app_key'] = '99b37417e1185eda1378600593b45c40';
+$urlParam['app_key'] = 'xxxxxx';
 $urlParam['client_os_type'] = 4;
 $urlParam['nonce'] = Util::randomString();
 $urlParam['timestamp'] = Util::msecTime();
@@ -25,7 +25,7 @@ $sortURL = urldecode(http_build_query($urlParam));
 $base64EncodedStr = base64_encode($sortURL);
 
 //4、准备下一步需要的HMAC-SHA1哈希key
-$hashKey = 'dd7a46b12fe8a304ef17892c89ede22a'.'XEbin4wC';
+$hashKey = 'xxxxxx'.'xxxxxx';
 
 //5、使用sha1Key对base64EncodedStr进行HMAC-SHA1哈希得到字节数组
 $sigStr = md5(hash_hmac('sha1', $base64EncodedStr, $hashKey, true));
