@@ -9,17 +9,20 @@ use Xmly\Util;
 $api = 'http://api.ximalaya.com/categories/list';
 
 //1、拿到除了sig以外的所有请求参数的原始值
-$urlParam = array();
-$urlParam['app_key'] = 'xxxxxx';
-$urlParam['client_os_type'] = 4;
-$urlParam['nonce'] = Util::randomString();
-$urlParam['timestamp'] = Util::msecTime();
-$urlParam['device_id'] = '2dfde78d016947e2982c734930951d55';
-$urlParam['server_api_version'] = '1.0.0';
+$params = array();
+$params['app_key'] = 'xxxxxx';
+$params['client_os_type'] = 4;
+$params['nonce'] = Util::randomString();
+$params['timestamp'] = Util::msecTime();
+$params['server_api_version'] = '1.0.0';
+$params['device_id'] = '2dfde78d016947e2982c734930951d55';
+
+$params['album_id'] = 6922889; // 专辑ID
+$data = http_build_query($params);
 
 //2、将参数进行【排序】并生成 URL-encode 之后的请求字符串
-ksort($urlParam, SORT_STRING);
-$sortURL = urldecode(http_build_query($urlParam));
+ksort($params, SORT_STRING);
+$sortURL = urldecode(http_build_query($params));
 
 //3、步骤2得到的字符串进行Base64编码
 $base64EncodedStr = base64_encode($sortURL);
@@ -31,7 +34,7 @@ $hashKey = 'xxxxxx'.'xxxxxx';
 $sigStr = md5(hash_hmac('sha1', $base64EncodedStr, $hashKey, true));
 
 //6、拼接完整请求 URL
-$requestUrl = $api . '?' . $sortURL . '&sig=' . $sigStr;
+$requestUrl = $api . '?' . $data . '&sig=' . $sigStr;
 
 //7、发起 Get 请求
 $headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
