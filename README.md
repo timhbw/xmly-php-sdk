@@ -211,4 +211,4 @@ Composer 是 PHP 的依赖管理工具，支持您项目所需的依赖项，并
   ```
 
 ## 快速入门
-参照 Demo 程序，详见  [examples](https://github.com/timhbw/xmly-php-sdk/tree/main/examples) 目录下的文件
+可以参照 Demo 程序，详见  [examples](https://github.com/timhbw/xmly-php-sdk/tree/main/examples) 目录下的文件
